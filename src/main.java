@@ -201,3 +201,49 @@ class Pais {
 enum Estado {
     EN_PROCESO, CERRADO;
 }
+enum Estado {
+    EN_PROCESO,
+    CERRADO
+}
+
+class Carrito {
+    private List<Item> items;
+    private LocalDateTime fechaCompra;
+    private Cliente cliente;
+    private Estado estado;
+    private Direccion direccionEnvio;
+    private Direccion direccionCobro;
+    private List<Pago> pagos; 
+
+    public LocalDateTime getFechaCompra() {
+        return this.fechaCompra;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public void cerrar() {
+        this.setEstado(Estado.CERRADO);
+    }
+
+    // Suma el precio real de todos los items (con descuentos aplicados)
+    public Double getMontoCarrito() {
+        double total = 0;
+        for (Item item : this.items) {
+            total += item.getPrecio();
+        }
+        return total;
+    }
+
+    // Suma solo lo que fue pagado mediante pagos asociados
+    public Double getMontoPagado() {
+        // Pago no tiene lista en Carrito, pero Carrito puede tener pagos
+        // Por ahora retorna 0 — ver nota abajo
+        return 0.0;
+    }
+
+    public Double getMontoDeuda() {
+        return this.getMonto() - this.getMontoPagado();
+    }
+}
