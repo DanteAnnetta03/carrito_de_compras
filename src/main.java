@@ -94,10 +94,10 @@ class Direccion{
     
     private String calle1;
     private String calle2;
-    private Int numero;
+    private int numero;
     private Boolean sinAltura;
-    private Int piso;
-    private Int cuerpo;
+    private int piso;
+    private int cuerpo;
     private String departamento;
     private Ciudad ciudad;
     private Boolean puedeEnvio;
@@ -184,3 +184,20 @@ class Pago{
     }
 }
 
+class Ciudad {
+    private String nombre;
+    private Provincia provincia;
+}
+
+class Provincia {
+    private String nombre;
+    private Pais pais;
+}
+
+class Pais {
+    private String nombre;
+}
+
+enum Estado {
+    EN_PROCESO, CERRADO;
+}
