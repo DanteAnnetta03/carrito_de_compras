@@ -201,10 +201,6 @@ class Pais {
 enum Estado {
     EN_PROCESO, CERRADO;
 }
-enum Estado {
-    EN_PROCESO,
-    CERRADO
-}
 
 class Carrito {
     private List<Item> items;
